@@ -1,0 +1,100 @@
+{% extends "regbase.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block main %}
+<style type="text/css"></style>
+<br><br>
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3 " style="margin:0 auto;">
+    <section class="form-elegant">
+
+        <!--Form without header-->
+        <div class="card">
+
+            <div class="card-body mx-2">
+
+                <div class="text-center">
+                    <h3 class="dark-grey-text mb-5"><strong style="color: #000;">Register</strong></h3>
+                </div>
+                 <form method="post" action=".">
+                        {% csrf_token %}
+                        
+                        { form.non_field_errors }}
+
+                      {% for hidden_field in form.hidden_fields %}
+                        {{ hidden_field.errors }}
+                        {{ hidden_field }}
+                      {% endfor %}   
+
+                      <p>{{ form.password2.errors.as_text }} </p>
+                      <p>{{ form.password1.errors.as_text }} </p>
+                     <p>{{ form.password.errors.as_text }}</p>
+                     <p>{{ form.username.errors.as_text }}</p> 
+                     <p>{{ form.email.errors.as_text }}</p> 
+                     <p>{{ form.first_name.errors.as_text }}</p>  
+                     <p>{{ form.last_name.errors.as_text }}</p> 
+                     <p>{{ form.phone.errors.as_text }}</p>  
+                    <!--Body-->
+                    <div class="md-form">
+                        <input type="text" id="Form-email1" class="form-control" required="" id="id_username" name="username" autofocus="" maxlength="254">
+                        <label for="id_username">Your Username <span class="asteriskField">*</span></label>
+                        
+                    </div>
+
+                    <div class="md-form">
+                        <input type="text" id="Form-email1" class="form-control" required="" id="id_first_name" name="first_name" maxlength="30" autofocus="" >
+                        <label for="id_first_name">First Name <span class="asteriskField">*</span></label>
+                    </div>
+
+                    <div class="md-form">
+                        <input type="text" id="Form-email1" class="form-control" required="" id="id_last_name" name="last_name" maxlength="30" autofocus="" >
+                        <label for="id_last_name">Last Name <span class="asteriskField">*</span></label>
+                    </div>
+
+                    <div class="md-form">
+                        <input type="text" id="Form-email1" class="form-control" required="" id="id_last_name" name="email" maxlength="254" autofocus="" >
+                        <label for="id_last_name">Email <span class="asteriskField">*</span></label>
+                    </div>
+
+                    <div class="md-form pb-3">
+                        <input type="password" id="Form-pass1" class="form-control" name="password1" required="" id="id_password1">
+                        <label for="id_password1"> password <span class="asteriskField">*</span> </label>                        
+                    </div>
+
+                    <div class="md-form pb-3">
+                        <input type="password" id="id_password2" class="form-control" name="password2" required="" id="id_password2">
+                        <label for="id_password1"> Password confirmation <span class="asteriskField">*</span> </label>                       
+                    </div>
+
+                    <div class="md-form">
+                        <input type="text" id="Form-email1" class="form-control" required="" id="id_phone" name="phone" maxlength="254" autofocus="" >
+                        <label for="id_phone">Phone <span class="asteriskField">*</span></label>
+                    </div>
+                    <div class="md-form">
+                        <label class="check">
+                        <input type="checkbox" class="icheckbox" required="" />I accept your terms and conditions</label><br> 
+                    </div>
+                    <div class="text-center mb-3">
+                        <input type="submit" class="btn btn-outline-primary waves-effect waves-light" value="Sign Up">
+                        <input type="hidden" name="next" value="">
+                    </div>
+                </form>
+               
+
+            </div>
+
+            <!--Footer-->
+            <div class="modal-footer mx-5 pt-3 mb-1">
+                <p class="font-small grey-text d-flex justify-content-end">Already a member? <a href="{% url 'auth_login' %}" class="blue-text ml-1"> Log In</a></p>
+            </div>
+
+        </div>
+        <!--/Form without header-->
+        <br><br>
+    </section>
+   </div>
+</div>         
+{% endblock %}
+
+

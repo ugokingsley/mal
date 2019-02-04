@@ -1,0 +1,47 @@
+{% extends "regbase.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block main %}
+<style type="text/css"></style>
+<br><br>
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3 " style="margin:0 auto;">
+    <section class="form-elegant">
+        <div class="card">
+            <div class="card-body mx-2">
+               <div class="text-center">
+                    <h3 class="dark-grey-text mb-5"><strong>Sign in</strong></h3>
+                </div>
+                 <form method="post" action=".">
+                        {% csrf_token %}
+                        
+                    {% if form.errors %}
+                        <p >username or password not correct</p>
+                    {% endif %}
+                     <div class="md-form">
+                        <input type="text" id="Form-email1" class="form-control" required="" id="id_username" name="username" autofocus="" maxlength="254">
+                        <label for="Form-email1">Your Username <span class="asteriskField">*</span></label>
+                    </div>
+                    <div class="md-form pb-3">
+                        <input type="password" id="Form-pass1" class="form-control" name="password" required="" id="id_password">
+                        <label for="Form-pass1">Your password <span class="asteriskField">*</span> </label>
+                        <p class="font-small blue-text d-flex justify-content-end">Forgot <a href="{% url 'auth_password_reset' %}" class="blue-text ml-1"> Password?</a></p>
+                    </div>
+                    <div class="text-center mb-3">
+                        <input type="submit" class="btn btn-outline-primary waves-effect waves-light" value="Log In">
+                        <input type="hidden" name="next" value="">
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer mx-5 pt-3 mb-1">
+                <p class="font-small grey-text d-flex justify-content-end">Not a member? <a href="{% url 'registration_register' %}" class="blue-text ml-1"> Sign Up</a></p>
+            </div>
+        </div><br><br>
+    </section>
+   </div>  
+</div>         
+{% endblock %}
+
+

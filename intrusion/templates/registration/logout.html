@@ -1,0 +1,10 @@
+{% extends "regbase.html" %}
+{% load i18n %}
+
+
+{% block main %}
+    <div class="container">
+        <h2 class="mb-5">you have successfully {% trans "Logged out" %}</h2>
+        <a href="{% url 'auth_login' %}"  class="btn btn-block btn-lg btn-primary">Login</a><br><br><br><br>
+    </div>
+{% endblock %}

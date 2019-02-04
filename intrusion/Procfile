@@ -1,0 +1,1 @@
+web: gunicorn intrusion.wsgi --log-file -

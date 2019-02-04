@@ -1,0 +1,37 @@
+{% extends 'prodbase.html' %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block title %} 404 {% endblock %}
+
+
+{% block content %}
+<style type="text/css">
+  img {width:100%;}
+.car-image-block {padding:0px;margin:0px;}
+.car-image-block img {min-height: 200px; overflow: hidden;}
+
+</style>
+
+<script src="https://use.fontawesome.com/2af581e539.js"></script>
+{% include 'prod_nav.html' %}
+
+
+<br>
+  
+  
+
+    <h1 style="margin: 5em !important;">
+        Error 404: {% trans "Page Not Found..." %} 
+    </h1>
+
+
+
+
+
+
+
+
+{% include 'prod_footer.html' %}
+
+{% endblock content %}

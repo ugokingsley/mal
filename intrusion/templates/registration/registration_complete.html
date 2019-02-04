@@ -1,0 +1,32 @@
+
+{% extends "regbase.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block main %}
+<style type="text/css"></style>
+<br><br>
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3 " style="margin:0 auto;">
+    <section class="form-elegant">
+        <div class="card">
+            <div class="card-body mx-2">
+               <div class="text-center">
+                    <h3 class="dark-grey-text mb-5"><strong style="color: #000;>Success !!</strong></h3>
+                </div>
+                 <h4 class="mb-5" style="color: #000 !important;">
+                 	{% trans "Congratulations, your account has been registered successfully, please check your email for account activation link. Your account must be activated before you can Sign In." %}
+                 </h4>
+
+        		<a href="{% url 'auth_login' %}"  class="btn-lg btn-primary">Login</a>
+                
+                    
+            </div>
+            
+        </div><br><br>
+    </section>
+   </div>  
+</div>         
+{% endblock %}
+
+

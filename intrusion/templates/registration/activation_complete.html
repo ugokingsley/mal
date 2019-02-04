@@ -1,0 +1,24 @@
+{% extends "regbase.html" %}
+{% load i18n %}
+
+
+{% block main %}
+    <br><br>
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3 " style="margin:0 auto;">
+    <section class="form-elegant">
+
+        <!--Form without header-->
+        <div class="card">
+
+            <div class="card-body mx-2">
+
+                <!--Header-->
+                <div class="text-center">
+                   
+                    <h4 class="mb-5" style="color: #000 !important;">{% trans "Congratulations, your account has been activated successfully, you can now login." %}</h4>
+                </div>
+        
+        <a href="{% url 'auth_login' %}"  class="btn btn-primary">Login</a>
+    </div></div></section></div></div>
+{% endblock %}
